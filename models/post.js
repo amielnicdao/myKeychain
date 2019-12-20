@@ -5,7 +5,12 @@ var pass = {
         orm.create("users", cols, vals, function(res) {
             cb(res);
     });
-}
+},
+    all: function(cb) {
+        orm.all("users", function(res) {
+            cb(res);
+        });
+    }
 };
 
 module.exports = pass;

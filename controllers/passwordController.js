@@ -9,11 +9,17 @@ var router = express.Router();
 var pwd = require("../models/post");
 
 router.get("/", function(req, res){
-    res.sendFile(path.join(__dirname, "public/index.html"));
+    res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
 router.get("/login", function(req, res){
-    res.sendFile(path.join(__dirname, "public/login.html"));
+    res.sendFile(path.join(__dirname, "../public/login.html"));
+});
+
+router.get("/display", function(req, res){
+    pwd.all(function(data) {
+    res.json({ users: data });
+});
 });
 
 router.get("/signup", function(req, res){
