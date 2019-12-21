@@ -1,39 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <title>Document</title>
 </head>
+
 <body>
-    <div id="names"></div>
+  <div id="names"></div>
 </body>
+
 </html>
 
 <script>
 
-    $(document).ready(function() {
-      $.ajax("/display", {
-        type: "GET"
-      }).then(function(data) {
-          console.log(data);
-        var names = data;
-        var len = names.users.length;
-        var names_elem = $("#names");
-        for (var i = 0; i < len; i++) {
-          names_elem.append(
-            "<li><p>" +
-              names.users[i].id +
-              "." +
-              names.users[i].name +
-              "<button data-nameid='" +
-              names.users[i].id +
-              "' class='loginBtn'>Log In!</button></p></li>"
-          );
-        }
-        console.log(data)
-      });
+  $(document).ready(function () {
+    $.ajax("/display", {
+      type: "GET"
+    }).then(function (data) {
+      console.log(data);
+      var names = data;
+      var len = names.users.length;
+      var names_elem = $("#names");
+      var text_p = $("<p>");
+      var anchor = $("<a>");
+
+      anchor.attr("onclick", function() {
+
+      })
+
+      for (var i = 0; i < len; i++) {
+        names_elem.append(
+          "<li><p>" +
+          names.users[i].id +
+          "." +
+          names.users[i].name +
+          `<a role='button' onclick='${doThis}' href='/dashboard' data-name='` +
+          names.users[i].name +
+          "' class='loginBtn'>Log In!</a></p></li>"
+        );
+
+        
+
+      }
+      console.log(data)
+
+      function doThis (event) {
+        console.log('dothis function');
+        event.preventDefault();
+    
+        var userName = $(this).attr("data-name");
+
+        localStorage.clear();
+        localStorage.setItem("name", userName);
+        console.log(localStorage.getItem("name"));
+        console.log(userName);
+      }
     });
-    </script>
+  });
+</script>
