@@ -26,6 +26,7 @@ router.get("/signup", function(req, res){
     res.sendFile(path.join(__dirname, "../public/signup.html"));
 });
 
+
 router.post("/signup", function(req, res){
     pwd.create([
         "name", "password"
@@ -38,7 +39,28 @@ router.post("/signup", function(req, res){
 });
 
 router.get("/dashboard", function(req, res){
-    res.sendFile(path.join(__dirname, "public/dashboard.html"));
+    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
+});
+
+router.get("/displayAccounts", function(req, res){
+    pwd.allAcc(function(data) {
+        res.json({ passwords: data });
+    });
+});
+
+router.get("/displayOne", function(req, res){
+
+    // pwd.displayOne(req.body.data,function(data) {
+    //     res.json({ passwords: data });
+    // });
+});
+
+router.post("/displayOne", function(req, res){
+    console.log('post /displayOne')
+    console.log(req.body)
+    // pwd.displayOne(req.body.data,function(data) {
+    //     res.json({ passwords: data });
+    // });
 });
 
 module.exports = router;
