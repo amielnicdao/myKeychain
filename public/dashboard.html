@@ -17,15 +17,15 @@
 $(document).ready(function() {
 
     // gather local storage data here
-    var data1 = localStorage.getItem("name");
+    // var data1 = localStorage.getItem("name");
     // var data1 = "test";
-
-    console.log(data1);
-
-      $.ajax("/displayOne", {
-        type: "POST",
-        data: data1,
-        dataType: String
+    const currentId = localStorage.getItem("id")
+    console.log("storage id")
+    console.log(currentId)
+      $.ajax(`/displayOne/?id=${currentId}`, {
+        type: "GET",
+        // data: data1,
+        // dataType: String
       }).then(function(data) {
           console.log(data);
         var accts = data;
@@ -33,9 +33,9 @@ $(document).ready(function() {
         var accts_elem = $("#accounts");
         for (var i = 0; i < len; i++) {
           accts_elem.append(
-            "<li><p>" +
+            "<li><p>Type: " +
               accts.passwords[i].type +
-              "." +
+              " & Pass: " +
               accts.passwords[i].password + "</p></li>"
           );
         }

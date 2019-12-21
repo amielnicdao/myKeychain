@@ -17,8 +17,8 @@ var pass = {
             cb(res);
         });
     },
-    displayOne: function(cols, cb) {
-        orm.displayOne("passwords", cols, function(res) {
+    displayOne: function(id, cb) {
+        orm.displayOne(id, function(res) {
             cb(res);
         });
     }
