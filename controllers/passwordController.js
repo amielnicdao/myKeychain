@@ -49,18 +49,9 @@ router.get("/displayAccounts", function(req, res){
 });
 
 router.get("/displayOne", function(req, res){
-
-    // pwd.displayOne(req.body.data,function(data) {
-    //     res.json({ passwords: data });
-    // });
-});
-
-router.post("/displayOne", function(req, res){
-    console.log('post /displayOne')
-    console.log(req.body)
-    // pwd.displayOne(req.body.data,function(data) {
-    //     res.json({ passwords: data });
-    // });
+    pwd.displayOne(req.query.id, function (data) {
+        res.json({passwords: data})
+    });
 });
 
 module.exports = router;

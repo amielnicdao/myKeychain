@@ -63,8 +63,8 @@ var orm = {
           cb(result);
         });
       },
-      displayOne: function(tableInput, cols, cb) {
-        var queryString = "SELECT * FROM " + tableInput + "WHERE" + cols + ";";
+      displayOne: function(id, cb) {
+        var queryString = "SELECT * FROM passwords WHERE user_id = " + id + ";";
         connection.query(queryString, function(err, result) {
           if (err) {
             throw err;
