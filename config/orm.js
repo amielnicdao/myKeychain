@@ -53,6 +53,24 @@ var orm = {
           }
           cb(result);
         });
+      },
+      allAcc: function(tableInput, cb) {
+        var queryString = "SELECT * FROM " + tableInput + ";";
+        connection.query(queryString, function(err, result) {
+          if (err) {
+            throw err;
+          }
+          cb(result);
+        });
+      },
+      displayOne: function(id, cb) {
+        var queryString = "SELECT * FROM passwords WHERE user_id = " + id + ";";
+        connection.query(queryString, function(err, result) {
+          if (err) {
+            throw err;
+          }
+          cb(result);
+        });
       }
 }
 

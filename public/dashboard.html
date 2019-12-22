@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="accounts"></div>
+</body>
+</html>
+
+<script>
+
+$(document).ready(function() {
+
+    // gather local storage data here
+    // var data1 = localStorage.getItem("name");
+    // var data1 = "test";
+    const currentId = localStorage.getItem("id")
+    console.log("storage id")
+    console.log(currentId)
+      $.ajax(`/displayOne/?id=${currentId}`, {
+        type: "GET",
+        // data: data1,
+        // dataType: String
+      }).then(function(data) {
+          console.log(data);
+        var accts = data;
+        var len = accts.passwords.length;
+        var accts_elem = $("#accounts");
+        for (var i = 0; i < len; i++) {
+          accts_elem.append(
+            "<li><p>Type: " +
+              accts.passwords[i].type +
+              " & Pass: " +
+              accts.passwords[i].password + "</p></li>"
+          );
+        }
+        console.log(data)
+      });
+    });
+</script>

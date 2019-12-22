@@ -10,6 +10,17 @@ var pass = {
         orm.all("users", function(res) {
             cb(res);
         });
+    },
+
+    allAcc: function(cb) {
+        orm.allAcc("passwords", function(res) {
+            cb(res);
+        });
+    },
+    displayOne: function(id, cb) {
+        orm.displayOne(id, function(res) {
+            cb(res);
+        });
     }
 };
 
