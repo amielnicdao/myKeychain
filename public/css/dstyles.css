@@ -1,0 +1,43 @@
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'Montserrat Subrayada', sans-serif;
+    
+}
+#keys {
+    text-align: center;
+    padding: 50px 0px 40px 0px;
+    border-bottom: 1px solid black;
+    font-family: 'Michroma', sans-serif;
+
+}
+
+.nav-link {
+    color: seagreen;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: seagreen;
+}
+a:hover {
+    color: darkgreen;
+}
+
+.row {
+    width: 80%;
+    margin: auto;
+}
+
+#text {
+    padding: 15px
+}
+
+.col-form-label {
+    padding-bottom: 50px;
+    font-family: 'Libre Baskerville', serif;
+}
+.btn-success {
+    background-color: seagreen;
+}
+
