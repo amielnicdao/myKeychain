@@ -21,7 +21,13 @@ var pass = {
         orm.displayOne(id, function(res) {
             cb(res);
         });
+    },
+    createNewAcc: function(cols, vals, cb) { //added
+        orm.createNewAcc("passwords", cols, vals, id, function(res) {
+            cb(res);
+    });
     }
+
 };
 
 module.exports = pass;

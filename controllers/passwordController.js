@@ -8,6 +8,8 @@ var router = express.Router();
 
 var pwd = require("../models/post");
 
+var saveId;
+
 router.get("/", function(req, res){
     res.sendFile(path.join(__dirname, "../public/index.html"));
 });
@@ -49,12 +51,26 @@ router.get("/displayAccounts", function(req, res){
 });
 
 router.get("/displayOne", function(req, res){
+    saveId = req.query.id //added
+    module.exports.id = saveId; //added
     pwd.displayOne(req.query.id, function (data) {
         res.json({passwords: data})
     });
 });
 
+router.post("/dashboard", function(req, res){//added
+    pwd.createNewAcc([
+        "name", "type", "password"
+    ], [
+        req.body.name, req.body.type, req.body.password
+    ],saveId, function(result) {
+        res.json({ id: result.insertId});
+    });
+    // console.log(req.body)
+});
+
 module.exports = router;
+
 
 
 
