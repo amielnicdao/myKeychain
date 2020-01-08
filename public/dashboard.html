@@ -8,7 +8,9 @@
 
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada|Rokkitt&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Michroma&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700&display=swap" rel="stylesheet">
@@ -43,16 +45,16 @@
     <div class="row">
         <div class="col-4">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+                <!-- <a class="nav-link active Instagram" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
                     aria-controls="v-pills-home" aria-selected="true">Instagram</a>
-                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
+                <a class="nav-link Facebook" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
                     aria-controls="v-pills-profile" aria-selected="false">Facebook</a>
-                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
+                <a class="nav-link Twitter" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
                     aria-controls="v-pills-messages" aria-selected="false">Twitter</a>
-                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
+                <a class="nav-link Amazon" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
                     aria-controls="v-pills-settings" aria-selected="false">Amazon</a>
                     <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
-                    aria-controls="v-pills-settings" aria-selected="false" style="text-align: center">+ New</a>
+                    aria-controls="v-pills-settings" aria-selected="false" style="text-align: center">+ New</a> -->
             </div>
         </div>
         <div class="col">
@@ -74,11 +76,11 @@
                     <div class="row justify-content-md-center">
                         <div class="col-md-auto">
                             <button type="submit" class="btn btn-success">Submit</button>
-                        </div>
+                        </div> 
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <label for="inputUser" class="col-4 col-form-label"><h4>Username:</h4></label>
                         <div class="col-8">
                             <input type="user" class="form-control" id="input">
@@ -93,11 +95,11 @@
                     <div class="row justify-content-md-center">
                         <div class="col-md-auto">
                             <button type="submit" class="btn btn-success">Submit</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <label for="inputUser" class="col-4 col-form-label"><h4>Username:</h4></label>
                         <div class="col-8">
                             <input type="user" class="form-control" id="input">
@@ -112,11 +114,11 @@
                     <div class="row justify-content-md-center">
                         <div class="col-md-auto">
                             <button type="submit" class="btn btn-success">Submit</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <label for="inputUser" class="col-4 col-form-label"><h4>Username:</h4></label>
                         <div class="col-8">
                             <input type="user" class="form-control" id="input">
@@ -132,7 +134,7 @@
                         <div class="col-md-auto">
                             <button type="submit" class="btn btn-success">Submit</button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -163,6 +165,8 @@ $(document).ready(function() {
     // gather local storage data here
     // var data1 = localStorage.getItem("name");
     // var data1 = "test";
+
+    var userData = new Object();
     const currentId = localStorage.getItem("id")
     console.log("storage id")
     console.log(currentId)
@@ -172,6 +176,7 @@ $(document).ready(function() {
         // dataType: String
       }).then(function(data) {
           console.log(data);
+          userData = data;
         var accts = data;
         var len = accts.passwords.length;
         var accts_elem = $("#accounts");
@@ -182,8 +187,25 @@ $(document).ready(function() {
               " & Pass: " +
               accts.passwords[i].password + "</p></li>"
           );
+
+          console.log(userData)
+      for(var i = 0; i < userData.passwords.length; i++ )
+      {
+
+            var webAccount = $("<a>");
+            webAccount.addClass("nav-link");
+            webAccount.attr("id", userData.passwords[i].type);
+            webAccount.attr("data-toggle", "pill");
+            webAccount.attr("role", "tab");
+            webAccount.text(userData.passwords[i].type);
+
+            console.log(webAccount)
+            $("#v-pills-tab").append(webAccount);
+      }
         }
         console.log(data)
       });
+      
+
     });
 </script>
