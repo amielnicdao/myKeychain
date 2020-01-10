@@ -5,7 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://code.jquery.com/jquery.js"></script>
-  <title>Document</title>
+  <title>Login</title>
+
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada|Rokkitt&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Michroma&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/dstyles.css">
+    <title> My KeyChain Dashboard</title>
+  </head>
+
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">My KeyChain <img src="images/whitekey.png"> </a> <a
+              style="font-family:'Rokkitt', serif; color:white;">PASSWORD MANAGER</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+              </form>
+          </div>
+      </nav>
+
+    <div id="names"></div>
+  </body>
+  
+  </html>
+  
   <script type="application/javascript">
     function doThis (event) {
       // event.preventDefault(); 
@@ -33,7 +68,7 @@
             names.users[i].name +
             `<a onclick='doThis(event)' href='/dashboard' role='button' data-id='` +
             names.users[i].id +
-            "' class='loginBtn'>Log In!</a></p></li>"
+            "' class='btn btn-success loginBtn'>Log In!</a></p></li>"
           );
         }
         //href='/dashboard'
@@ -42,12 +77,6 @@
       });
     });
   </script>
-</head>
 
-<body>
-  <div id="names"></div>
-</body>
-
-</html>
 
 

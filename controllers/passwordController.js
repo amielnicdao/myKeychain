@@ -69,6 +69,21 @@ router.post("/dashboard", function(req, res){//added
     // console.log(req.body)
 });
 
+router.put("/dashboard/:id", function(req, res) {
+    var condition = "id = " + req.params.id;
+    console.log("controller");
+    pwd.update({
+        user_name: req.body.user_name,
+        password: req.body.password
+    }, condition, function(result) {
+        if (result.changedRows == 0) {
+            return res.status(404).end();
+        } else {
+            res.json({id: req.params.id});
+        }
+    });
+});
+
 module.exports = router;
 
 
