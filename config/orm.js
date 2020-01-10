@@ -101,6 +101,19 @@ var orm = {
           }
           cb(result);
         });
+      },
+      delete: function(table, condition, cb) {
+        var deleteString = "DELETE FROM " + table;
+        deleteString += " WHERE ";
+        deleteString += condition;
+        console.log(deleteString);
+        connection.query(deleteString, function(err, result) {
+          if (err) {
+            throw err;
+          }
+
+          cb(result);
+        });
       }
 
 }
