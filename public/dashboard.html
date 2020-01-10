@@ -222,7 +222,19 @@
                         document.getElementById("hiddenType").value = type;
                         document.getElementById("hiddenID").value = id;
                     })
+
+                    var deleteButton = $("<img>")
+                    deleteButton.addClass("delete")
+                    deleteButton.attr("src", "../images/trash.png")
+                    webAccount.append(deleteButton)
                     $("#v-pills-tab").append(webAccount);
+                    $('.delete').click(function () {
+                            $(this).parent().remove();
+                            return false;
+                        });
+
+                    $("#v-pills-tab").append(webAccount);
+
                 }
             }
             console.log(data)
