@@ -37,7 +37,7 @@ var pass = {
     },
     delete: function(condition, cb) {
         console.log("post");
-        orm.delete("password", condition, function(res){
+        orm.delete("passwords", condition, function(res){
             cb(res);
         });
     }
