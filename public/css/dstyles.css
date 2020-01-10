@@ -41,3 +41,14 @@ a:hover {
     background-color: seagreen;
 }
 
+.delete {
+    float: right;
+}
+
+.delete{
+    color: red;
+    display: none;
+}
+.nav-link:hover .delete {
+   display:block  
+}

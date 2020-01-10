@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada|Rokkitt&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Michroma&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700&display=swap" rel="stylesheet">
@@ -43,101 +44,101 @@
     <div class="row">
         <div class="col-4">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" role="tab"
-                     >Instagram</a>
-                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
-                   >Facebook</a>
-                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
-                    >Twitter</a>
-                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
-                    >Amazon</a>
-                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
-                     style="text-align: center">+ New</a>
             </div>
         </div>
-        <div class="col">
-            <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
-                    aria-labelledby="v-pills-home-tab">
-                    <div class="form-group row">
-                        <label for="inputUser" class="col-4 col-form-label"><h4>Username:</h4></label>
-                        <div class="col-8">
-                            <input type="user" class="form-control" id="input">
+        <form>
+            <div class="col">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                        aria-labelledby="v-pills-home-tab">
+                        <div class="form-group row">
+                            <label for="inputUser" class="col-4 col-form-label">
+                                <h4>Username:</h4>
+                            </label>
+                            <div class="col-8">
+                                <input type="user" class="form-control" id="input">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-4 col-form-label"><h4>Password:</h4></label>
-                        <div class="col-8">
-                            <input type="password" class="form-control" id="inputPassword">
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-4 col-form-label">
+                                <h4>Password:</h4>
+                            </label>
+                            <div class="col-8">
+                                <input type="text" class="form-control" id="inputPassword">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-md-center">
-                        <div class="col-md-auto">
-                            <button type="submit" class="btn btn-success">Submit</button>
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-auto">
+                                <button type="submit" class="btn btn-success" id="submit">Submit</button>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                    <div class="form-group row">
-                        <label for="inputUser" class="col-4 col-form-label"><h4>Username:</h4></label>
-                        <div class="col-8">
-                            <input type="user" class="form-control" id="input">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-4 col-form-label"><h4>Password:</h4></label>
-                        <div class="col-8">
-                            <input type="password" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="row justify-content-md-center">
-                        <div class="col-md-auto">
-                            <button type="submit" class="btn btn-success">Submit</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                    <div class="form-group row">
-                        <label for="inputUser" class="col-4 col-form-label"><h4>Username:</h4></label>
-                        <div class="col-8">
-                            <input type="user" class="form-control" id="input">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-4 col-form-label"><h4>Password:</h4></label>
-                        <div class="col-8">
-                            <input type="password" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="row justify-content-md-center">
-                        <div class="col-md-auto">
-                            <button type="submit" class="btn btn-success">Submit</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                    <div class="form-group row">
-                        <label for="inputUser" class="col-4 col-form-label"><h4>Username:</h4></label>
-                        <div class="col-8">
-                            <input type="user" class="form-control" id="input">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-4 col-form-label"><h4>Password:</h4></label>
-                        <div class="col-8">
-                            <input type="password" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="row justify-content-md-center">
-                        <div class="col-md-auto">
-                            <button type="submit" class="btn btn-success">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </form>
+
+        <input type="text" id="hiddenType" style="visibility: hidden;">
+        <input type="text" id="hiddenID" style="visibility: hidden;">
     </div>
- <div id="accounts"></div>
+    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+
+        <!-- <div class="form-group row">
+                        <label for="inputUser" class="col-4 col-form-label"><h4>Username:</h4></label>
+                        <div class="col-8">
+                            <input type="user" class="form-control" id="input">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-4 col-form-label"><h4>Password:</h4></label>
+                        <div class="col-8">
+                            <input type="password" class="form-control" id="inputPassword">
+                        </div>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-auto">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div> -->
+    </div>
+    </div>
+    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+        <!-- <div class="form-group row">
+                        <label for="inputUser" class="col-4 col-form-label"><h4>Username:</h4></label>
+                        <div class="col-8">
+                            <input type="user" class="form-control" id="input">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-4 col-form-label"><h4>Password:</h4></label>
+                        <div class="col-8">
+                            <input type="password" class="form-control" id="inputPassword">
+                        </div>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-auto">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div> -->
+    </div>
+    </div>
+    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+        <!-- <div class="form-group row">
+                        <label for="inputUser" class="col-4 col-form-label"><h4>Username:</h4></label>
+                        <div class="col-8">
+                            <input type="user" class="form-control" id="input">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-4 col-form-label"><h4>Password:</h4></label>
+                        <div class="col-8">
+                            <input type="password" class="form-control" id="inputPassword">
+                        </div>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-auto">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div> -->
+    </div>
+    </div>
+    </div>
+    </div>
+    <div id="accounts"></div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -152,38 +153,99 @@
 
 
 </html>
-    <script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://code.jquery.com/jquery.js"></script>
 
 
 
 <script>
 
-$(document).ready(function() {
+    $(document).ready(function () {
 
-    // gather local storage data here
-    // var data1 = localStorage.getItem("name");
-    // var data1 = "test";
-    const currentId = localStorage.getItem("id")
-    console.log("storage id")
-    console.log(currentId)
-      $.ajax(`/displayOne/?id=${currentId}`, {
-        type: "GET",
-        // data: data1,
-        // dataType: String
-      }).then(function(data) {
-          console.log(data);
-        var accts = data;
-        var len = accts.passwords.length;
-        var accts_elem = $("#accounts");
-        for (var i = 0; i < len; i++) {
-          accts_elem.append(
-            "<li><p>Type: " +
-              accts.passwords[i].type +
-              " & Pass: " +
-              accts.passwords[i].password + "</p></li>"
-          );
-        }
-        console.log(data)
-      });
+        // gather local storage data here
+        // var data1 = localStorage.getItem("name");
+        // var data1 = "test";
+        $("#submit").on("click", function () {
+            event.preventDefault();
+            const username = $("#input").val();
+            const pass = $("#inputPassword").val();
+            const type = $("#hiddenType").val();
+            const id = $("#hiddenID").val();
+            //console.log(id, username, pass, type);
+            // UPDATE ACCOUNT AJAX CALL HERE
+            var updatedAcct = {
+                user_name: username,
+                password: pass
+            }
+            $.ajax({
+                url: "/dashboard/" + id,
+                type: "PUT",
+                data: JSON.stringify(updatedAcct),
+                dataType: "json",
+                contentType: "application/json"
+            }).then(function (data) {
+                console.log("updated id: " + id);
+                location.reload();
+             });
+        })
+        var userData = new Object();
+        const currentId = localStorage.getItem("id")
+        // console.log("storage id")
+        // console.log(currentId)
+        $.ajax(`/displayOne/?id=${currentId}`, {
+            type: "GET",
+            // data: data1,
+            // dataType: String
+        }).then(function (data) {
+            // console.log(data);
+            userData = data;
+            var accts = data;
+            var len = accts.passwords.length;
+            var accts_elem = $("#accounts");
+            for (var i = 0; i < len; i++) {
+                accts_elem.append(
+                    "<li><p>Type: " +
+                    accts.passwords[i].type +
+                    " & Pass: " +
+                    accts.passwords[i].password + "</p></li>"
+                );
+                // console.log(userData)
+                for (var i = 0; i < userData.passwords.length; i++) {
+
+                    var webAccount = $("<a>");
+                    webAccount.addClass("nav-link");
+                    webAccount.attr("id", userData.passwords[i].type);
+                    webAccount.attr("data-toggle", "pill");
+                    webAccount.attr("role", "tab");
+                    webAccount.text(userData.passwords[i].type);
+                    // console.log(userData.passwords[i].user_name)
+                    const name = userData.passwords[i].user_name;
+                    const pass = userData.passwords[i].password;
+                    const type = userData.passwords[i].type;
+                    const id = userData.passwords[i].id;
+                    webAccount.on("click", function () {
+                        document.getElementById("input").value = name;
+                        document.getElementById("inputPassword").value = pass;
+                        document.getElementById("hiddenType").value = type;
+                        document.getElementById("hiddenID").value = id;
+                    })
+
+                    var deleteButton = $("<img>")
+                    deleteButton.addClass("delete")
+                    deleteButton.attr("src", "../images/trash.png")
+                    webAccount.append(deleteButton)
+                    $("#v-pills-tab").append(webAccount);
+                    $('.delete').click(function () {
+                            $(this).parent().remove();
+                            return false;
+                        });
+
+                    $("#v-pills-tab").append(webAccount);
+
+                }
+            }
+            console.log(data)
+        });
+
+
     });
 </script>
