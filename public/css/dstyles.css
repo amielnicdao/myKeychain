@@ -52,3 +52,7 @@ a:hover {
 .nav-link:hover .delete {
    display:block  
 }
+
+#pillscol {
+    width: 65%;
+}
