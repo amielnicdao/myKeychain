@@ -62,6 +62,14 @@
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
                         aria-labelledby="v-pills-home-tab">
                         <div class="form-group row">
+                            <label for="inputSite" class="col-4 col-form-label">
+                                <h4>Website:</h4>
+                            </label>
+                            <div class="col-8">
+                                <input type="user" class="form-control" id="inputSite">
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="inputUser" class="col-4 col-form-label">
                                 <h4>Username:</h4>
                             </label>
@@ -81,7 +89,11 @@
                             <div class="col-md-auto">
                                 <button type="submit" class="btn btn-success" id="submit">Submit</button>
                             </div>
+                            <div class="col-md-auto">
+                                <button type="submit" class="btn btn-success" id="deleteBtn">Delete</button>
+                            </div>
                         </div>
+                       
         </form>
 
         <input type="text" id="hiddenType" style="visibility: hidden;">
@@ -235,36 +247,42 @@
                     webAccount.on("click", function () {
                         document.getElementById("input").value = name;
                         document.getElementById("inputPassword").value = pass;
+                        document.getElementById("inputSite").value = type;
                         document.getElementById("hiddenType").value = type;
+                        $("#deleteBtn").attr("siteId",id);
                         document.getElementById("hiddenID").value = id;
                     })
 
                     var deleteButton = $("<img>");
                     deleteButton.addClass("delete");
                     deleteButton.attr("src", "../images/trash.png");
-                    deleteButton.attr("id", userData.passwords[i].id);
+                    deleteButton.attr("siteId", userData.passwords[i].id);
                     webAccount.append(deleteButton);
                     $("#v-pills-tab").append(webAccount);
-                    $('.delete').click(function () {
-                        event.preventDefault();
-                        $(this).attr("id");
-                        $(this).parent().remove();
-                        $.ajax({
-                            url: "/dashboard/" + $(this).attr("id"),
-                            type: "DELETE"
-                        }).then(function (data) {
-                            console.log("deleted id: " + id);
-                            location.reload();
-                        });
-                        return false;
-                    });
+                    
 
-                    $("#v-pills-tab").append(webAccount);
+                   // $("#v-pills-tab").append(webAccount);
 
                 }
             }
             console.log(data)
         });
+
+        $("#deleteBtn").on("click",function () {
+                        event.preventDefault();
+                        
+                        var websiteId = $(this).attr("siteId");
+                        console.log(websiteId);
+                        $(this).parent().remove();
+                        $.ajax({
+                            url: "/dashboard/" + websiteId,
+                            type: "DELETE"
+                        }).then(function (data) {
+                            //console.log("deleted id: " + id);
+                            location.reload();
+                        });
+                        //return false;
+                    });
 
 
     });

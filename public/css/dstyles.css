@@ -56,3 +56,7 @@ a:hover {
 #pillscol {
     width: 65%;
 }
+
+#deleteBtn {
+    background-color: red;
+}
