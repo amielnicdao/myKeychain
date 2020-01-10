@@ -56,36 +56,40 @@
                     aria-controls="v-pills-settings" aria-selected="false" style="text-align: center">+ New</a> -->
             </div>
         </div>
-        <div class="col">
-            <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
-                    aria-labelledby="v-pills-home-tab">
-                    <div class="form-group row">
-                        <label for="inputUser" class="col-4 col-form-label">
-                            <h4>Username:</h4>
-                        </label>
-                        <div class="col-8">
-                            <input type="user" class="form-control" id="input">
+        <form>
+            <div class="col">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                        aria-labelledby="v-pills-home-tab">
+                        <div class="form-group row">
+                            <label for="inputUser" class="col-4 col-form-label">
+                                <h4>Username:</h4>
+                            </label>
+                            <div class="col-8">
+                                <input type="user" class="form-control" id="input">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-4 col-form-label">
-                            <h4>Password:</h4>
-                        </label>
-                        <div class="col-8">
-                            <input type="text" class="form-control" id="inputPassword">
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-4 col-form-label">
+                                <h4>Password:</h4>
+                            </label>
+                            <div class="col-8">
+                                <input type="text" class="form-control" id="inputPassword">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-md-center">
-                        <div class="col-md-auto">
-                            <button type="submit" class="btn btn-success" id="submit">Submit</button>
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-auto">
+                                <button type="submit" class="btn btn-success" id="submit">Submit</button>
+                            </div>
                         </div>
-                    </div>
-                    <input type="text" id="hiddenType" style="visibility: hidden;">
-                    <input type="text" id="hiddenID" style="visibility: hidden;">
-                </div>
-                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                    <!-- <div class="form-group row">
+        </form>
+
+        <input type="text" id="hiddenType" style="visibility: hidden;">
+        <input type="text" id="hiddenID" style="visibility: hidden;">
+    </div>
+    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+
+        <!-- <div class="form-group row">
                         <label for="inputUser" class="col-4 col-form-label"><h4>Username:</h4></label>
                         <div class="col-8">
                             <input type="user" class="form-control" id="input">
@@ -101,10 +105,10 @@
                         <div class="col-md-auto">
                             <button type="submit" class="btn btn-success">Submit</button>
                         </div> -->
-                </div>
-            </div>
-            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                <!-- <div class="form-group row">
+    </div>
+    </div>
+    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+        <!-- <div class="form-group row">
                         <label for="inputUser" class="col-4 col-form-label"><h4>Username:</h4></label>
                         <div class="col-8">
                             <input type="user" class="form-control" id="input">
@@ -120,10 +124,10 @@
                         <div class="col-md-auto">
                             <button type="submit" class="btn btn-success">Submit</button>
                         </div> -->
-            </div>
-        </div>
-        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-            <!-- <div class="form-group row">
+    </div>
+    </div>
+    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+        <!-- <div class="form-group row">
                         <label for="inputUser" class="col-4 col-form-label"><h4>Username:</h4></label>
                         <div class="col-8">
                             <input type="user" class="form-control" id="input">
@@ -140,7 +144,7 @@
                             <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                     </div> -->
-        </div>
+    </div>
     </div>
     </div>
     </div>
@@ -171,26 +175,38 @@
         // var data1 = localStorage.getItem("name");
         // var data1 = "test";
         $("#submit").on("click", function () {
+            event.preventDefault();
             const username = $("#input").val();
             const pass = $("#inputPassword").val();
             const type = $("#hiddenType").val();
             const id = $("#hiddenID").val();
-            console.log(id, username, pass, type);
+            //console.log(id, username, pass, type);
             // UPDATE ACCOUNT AJAX CALL HERE
-            $.ajax(`/displayOne/?id=${currentId}`, {
-                type: "POST",
-            }).then(function (data) { });
+            var updatedAcct = {
+                user_name: username,
+                password: pass
+            }
+            $.ajax({
+                url: "/dashboard/" + id,
+                type: "PUT",
+                data: JSON.stringify(updatedAcct),
+                dataType: "json",
+                contentType: "application/json"
+            }).then(function (data) {
+                console.log("updated id: " + id);
+                location.reload();
+             });
         })
         var userData = new Object();
         const currentId = localStorage.getItem("id")
-        console.log("storage id")
-        console.log(currentId)
+        // console.log("storage id")
+        // console.log(currentId)
         $.ajax(`/displayOne/?id=${currentId}`, {
             type: "GET",
             // data: data1,
             // dataType: String
         }).then(function (data) {
-            console.log(data);
+            // console.log(data);
             userData = data;
             var accts = data;
             var len = accts.passwords.length;
@@ -202,7 +218,7 @@
                     " & Pass: " +
                     accts.passwords[i].password + "</p></li>"
                 );
-                console.log(userData)
+                // console.log(userData)
                 for (var i = 0; i < userData.passwords.length; i++) {
 
                     var webAccount = $("<a>");
@@ -211,7 +227,7 @@
                     webAccount.attr("data-toggle", "pill");
                     webAccount.attr("role", "tab");
                     webAccount.text(userData.passwords[i].type);
-                    console.log(userData.passwords[i].user_name)
+                    // console.log(userData.passwords[i].user_name)
                     const name = userData.passwords[i].user_name;
                     const pass = userData.passwords[i].password;
                     const type = userData.passwords[i].type;
