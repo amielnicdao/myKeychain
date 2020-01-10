@@ -80,7 +80,7 @@ var orm = {
         queryString += "VALUES (";
         queryString += printQuestionMarks(vals.length);
         queryString += ") ";
-        queryString += "WHERE user_id = " + id + ";"; 
+        queryString += "WHERE user_id = " + localStorage.getItem("id") + ";"; 
         console.log(queryString);
         connection.query(queryString, vals, function(err, result) {
           if (err) {
@@ -88,7 +88,21 @@ var orm = {
           }
           cb(result);
         });
+      },
+      update: function(table, cols, condition, cb) {//added
+        var queryString = "UPDATE " + table;
+        queryString += " SET ";
+        queryString += objToSql(cols);
+        queryString += " WHERE " + condition;
+        console.log(queryString);
+        connection.query(queryString, function(err, result) {
+          if (err) {
+            throw err;
+          }
+          cb(result);
+        });
       }
+
 }
 
 module.exports = orm;
