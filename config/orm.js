@@ -88,7 +88,21 @@ var orm = {
           }
           cb(result);
         });
+      },
+      update: function(table, cols, condition, cb) {//added
+        var queryString = "UPDATE " + table;
+        queryString += " SET ";
+        queryString += objToSql(cols);
+        queryString += " WHERE " + condition;
+        console.log(queryString);
+        connection.query(queryString, function(err, result) {
+          if (err) {
+            throw err;
+          }
+          cb(result);
+        });
       }
+
 }
 
 module.exports = orm;

@@ -26,6 +26,14 @@ var pass = {
         orm.createNewAcc("passwords", cols, vals, id, function(res) {
             cb(res);
     });
+    },
+    update: function(cols, condition, cb) {
+        console.log("posst");
+        orm.update("passwords", cols, condition, function(res){
+            
+            cb(res);
+            
+        });
     }
 
 };
