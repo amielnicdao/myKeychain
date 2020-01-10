@@ -34,6 +34,12 @@ var pass = {
             cb(res);
             
         });
+    },
+    delete: function(condition, cb) {
+        console.log("post");
+        orm.delete("password", condition, function(res){
+            cb(res);
+        });
     }
 
 };
