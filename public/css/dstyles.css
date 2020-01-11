@@ -99,7 +99,7 @@ a:hover {
 
   .footer {
     border-top: 7px solid  seagreen;
-    position: static;
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
