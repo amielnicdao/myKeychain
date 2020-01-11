@@ -22,7 +22,7 @@ var pass = {
             cb(res);
         });
     },
-    createNewAcc: function(cols, vals, cb) { //added
+    createNewAcc: function(cols, vals, cb) { 
         console.log("post");
         orm.createNewAcc("passwords", cols, vals, function(res) {
             cb(res);

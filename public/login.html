@@ -51,19 +51,14 @@
 <script>
 
   function doThis(event) {
-    // event.preventDefault(); 
-    console.log("dothis function");
     const userId = event.target.dataset.id
-    // console.log("id = " + userId);
     localStorage.clear();
     localStorage.setItem("id", userId);
-    // console.log(localStorage.getItem("id"));
   }
   $(document).ready(function () {
     $.ajax("/display", {
       type: "GET"
     }).then(function (data) {
-      console.log(data);
 
       var names = data;
       var len = names.users.length;
@@ -97,16 +92,8 @@
           });
         });
       });
-      //href='/dashboard'
-      // window.location.href = "/dashboard";
-      console.log(data)
-
     });
   });
 
-
-
-
 </script>
-
 </html>

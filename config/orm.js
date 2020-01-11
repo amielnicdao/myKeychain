@@ -72,7 +72,7 @@ var orm = {
           cb(result);
         });
       },
-      createNewAcc: function(table, cols, vals, cb) {//added
+      createNewAcc: function(table, cols, vals, cb) {
         var queryString = "INSERT INTO " + table;
         queryString += " (";
         queryString += cols.toString();
@@ -80,8 +80,6 @@ var orm = {
         queryString += "VALUES (";
         queryString += printQuestionMarks(vals.length);
         queryString += ");";
-        //queryString += "WHERE user_id = " + id + ";"; 
-        console.log(queryString);
         connection.query(queryString, vals, function(err, result) {
           if (err) {
             throw err;
@@ -89,12 +87,11 @@ var orm = {
           cb(result);
         });
       },
-      update: function(table, cols, condition, cb) {//added
+      update: function(table, cols, condition, cb) {
         var queryString = "UPDATE " + table;
         queryString += " SET ";
         queryString += objToSql(cols);
         queryString += " WHERE " + condition;
-        console.log(queryString);
         connection.query(queryString, function(err, result) {
           if (err) {
             throw err;
@@ -106,7 +103,6 @@ var orm = {
         var deleteString = "DELETE FROM " + table;
         deleteString += " WHERE ";
         deleteString += condition;
-        console.log(deleteString);
         connection.query(deleteString, function(err, result) {
           if (err) {
             throw err;
