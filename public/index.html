@@ -18,8 +18,8 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">My KeyChain <img src="images/whitekey.png"> </a> <a
-            style="font-family:'Rokkitt', serif; color:white;">PASSWORD MANAGER</a>
+        <a class="navbar-brand" href="#">My KeyChain <img src="images/whitekey.png"> <a
+            style="font-family:'Rokkitt', serif; color:white;">PASSWORD MANAGER</a> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -112,10 +112,10 @@
     </div>
     <hr id="secondhr"> 
     <div class="row section3">
-            <div class="col-6">
+            <div class="col-6 lastdivpic">
                 <img class="image3" src="images/dashboard.png" alt="Card image cap" width="600px" height="350px">
             </div>
-            <div class="col-6">
+            <div class="col-6 lastdivtext">
                 <div id="text"><h1 id="previewtext">Start saving your logins on My Keychain</h1></div>
                 <div id="text"><span><h1>—the safe,simple way to store
                     and fill passwords and personal information.</h1></span></div>
@@ -127,8 +127,11 @@
 
 </body>
 
-<script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.5/gsap.min.js"></script>
+<script>
+gsap.to(".image3", {duration: 1, x: -50});
+gsap.from(".images", {duration: 1, opacity: 0, delay: 1.5, y:-150, stagger: 0.25});
     $("#signup").on("click", function(event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
