@@ -14,6 +14,10 @@ router.get("/", function(req, res){
     res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
+router.get("/index", function(req, res){
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+});
+
 router.get("/login", function(req, res){
     res.sendFile(path.join(__dirname, "../public/login.html"));
 });
