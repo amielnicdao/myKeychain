@@ -1,6 +1,3 @@
-
-//add update and delete functions for passwords
-
 var express = require("express");
 var path = require("path");
 
@@ -41,7 +38,6 @@ router.post("/signup", function(req, res){
     ], function(result) {
         res.json({ id: result.insertId});
     });
-    // console.log(req.body)
 });
 
 router.get("/dashboard", function(req, res){
@@ -55,14 +51,14 @@ router.get("/displayAccounts", function(req, res){
 });
 
 router.get("/displayOne", function(req, res){
-    saveId = req.query.id //added
-    module.exports.id = saveId; //added
+    saveId = req.query.id 
+    module.exports.id = saveId; 
     pwd.displayOne(req.query.id, function (data) {
         res.json({passwords: data})
     });
 });
 
-router.post("/createAccount/:id", function(req, res){//added
+router.post("/createAccount/:id", function(req, res){
     var userId = req.params.id;
     console.log("controller");
     pwd.createNewAcc([
@@ -72,7 +68,6 @@ router.post("/createAccount/:id", function(req, res){//added
     ], function(result) {
         res.json({ id: result.insertId});
     });
-    // console.log(req.body)
 });
 
 router.put("/dashboard/:id", function(req, res) {

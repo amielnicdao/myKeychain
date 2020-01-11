@@ -18,43 +18,44 @@
 </head>
 
 <body>
-    
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">New website</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="inputWebsiteAdd">Website name:</label>
-                  <input type="text" class="form-control" id="inputWebsiteAdd">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New website</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="form-group">
-                  <label for="inputUserNameAdd">Username:</label>
-                  <input type="text" class="form-control" id="inputUserNameAdd">
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="inputWebsiteAdd">Website name:</label>
+                            <input type="text" class="form-control" id="inputWebsiteAdd">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputUserNameAdd">Username:</label>
+                            <input type="text" class="form-control" id="inputUserNameAdd">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPasswordAdd">Password:</label>
+                            <input type="text" class="form-control" id="inputPasswordAdd">
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="inputPasswordAdd">Password:</label>
-                    <input type="text" class="form-control" id="inputPasswordAdd">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="inputSubmit"
+                        style="background-color: teal;">Submit</button>
                 </div>
-              </form>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" id="inputSubmit" style="background-color: teal;">Submit</button>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
         <a class="navbar-brand" href="/index">My KeyChain <img src="images/whitekey.png"> </a> <a
-
             style="font-family:'Rokkitt', serif; color:white;">PASSWORD MANAGER</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +65,8 @@
             <ul class="navbar-nav mr-auto">
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-outline-success my-2 my-sm-0" id="signOut" href="/index" type="submit">Sign Out</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" id="signOut" href="/index" type="submit">Sign
+                    Out</button>
             </form>
         </div>
     </nav>
@@ -79,18 +81,10 @@
     <div class="row">
         <div class="col-4">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <!-- <a class="nav-link active Instagram" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
-                    aria-controls="v-pills-home" aria-selected="true">Instagram</a>
-                <a class="nav-link Facebook" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
-                    aria-controls="v-pills-profile" aria-selected="false">Facebook</a>
-                <a class="nav-link Twitter" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
-                    aria-controls="v-pills-messages" aria-selected="false">Twitter</a>
-                <a class="nav-link Amazon" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
-                    aria-controls="v-pills-settings" aria-selected="false">Amazon</a>
-                     -->
             </div>
-            <a class="nav-link" id="v-pills-settings-tab" data-toggle="modal" data-target="#myModal" href="#v-pills-settings" role="tab"
-                    aria-controls="v-pills-settings" aria-selected="false" style="text-align: center">+ New</a>
+            <a class="nav-link" id="v-pills-settings-tab" data-toggle="modal" data-target="#myModal"
+                href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"
+                style="text-align: center">+ New</a>
         </div>
         <form id="pillscol">
             <div class="col">
@@ -129,69 +123,19 @@
                                 <button type="submit" class="btn btn-success" id="deleteBtn">Delete</button>
                             </div>
                         </div>
-                       
+
         </form>
 
         <input type="text" id="hiddenType" style="visibility: hidden;">
         <input type="text" id="hiddenID" style="visibility: hidden;">
     </div>
     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-
-        <!-- <div class="form-group row">
-                        <label for="inputUser" class="col-4 col-form-label"><h4>Username:</h4></label>
-                        <div class="col-8">
-                            <input type="user" class="form-control" id="input">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-4 col-form-label"><h4>Password:</h4></label>
-                        <div class="col-8">
-                            <input type="password" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="row justify-content-md-center">
-                        <div class="col-md-auto">
-                            <button type="submit" class="btn btn-success">Submit</button>
-                        </div> -->
     </div>
     </div>
     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-        <!-- <div class="form-group row">
-                        <label for="inputUser" class="col-4 col-form-label"><h4>Username:</h4></label>
-                        <div class="col-8">
-                            <input type="user" class="form-control" id="input">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-4 col-form-label"><h4>Password:</h4></label>
-                        <div class="col-8">
-                            <input type="password" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="row justify-content-md-center">
-                        <div class="col-md-auto">
-                            <button type="submit" class="btn btn-success">Submit</button>
-                        </div> -->
     </div>
     </div>
     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-        <!-- <div class="form-group row">
-                        <label for="inputUser" class="col-4 col-form-label"><h4>Username:</h4></label>
-                        <div class="col-8">
-                            <input type="user" class="form-control" id="input">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-4 col-form-label"><h4>Password:</h4></label>
-                        <div class="col-8">
-                            <input type="password" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="row justify-content-md-center">
-                        <div class="col-md-auto">
-                            <button type="submit" class="btn btn-success">Submit</button>
-                        </div>
-                    </div> -->
     </div>
     </div>
     </div>
@@ -207,7 +151,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
-        
+
 </body>
 
 
@@ -220,19 +164,14 @@
 </script>
 
 <script>
-gsap.to("#navbar-brand", {duration: 1, x: 300});
+    gsap.to("#navbar-brand", { duration: 1, x: 300 });
 
     $(document).ready(function () {
-
-        // gather local storage data here
-        // var data1 = localStorage.getItem("name");
-        // var data1 = "test";
         var userData = new Object();
         const currentId = localStorage.getItem("id")
-        $("#inputSubmit").on("click" ,function(event){
+        $("#inputSubmit").on("click", function (event) {
             event.preventDefault();
-            
-            
+
             var newWebsite = {
                 user_name: $("#inputUserNameAdd")
                     .val()
@@ -242,34 +181,27 @@ gsap.to("#navbar-brand", {duration: 1, x: 300});
                     .trim(),
                 type: $("#inputWebsiteAdd")
                     .val()
-                    .trim()     
-        };
+                    .trim()
+            };
 
-        console.log(newWebsite);
-
-    
-        // Send the POST request.
-        $.ajax("/createAccount/"+ currentId, {
-          type: "POST",
-          data: JSON.stringify(newWebsite),
-          dataType: "json",
-          contentType: "application/json"
-        }).then(function() {
-          console.log("created new website");
-          // Reload the page to get the updated list
-          location.reload();
+            $.ajax("/createAccount/" + currentId, {
+                type: "POST",
+                data: JSON.stringify(newWebsite),
+                dataType: "json",
+                contentType: "application/json"
+            }).then(function () {
+                console.log("created new website");
+                location.reload();
             });
 
         });
 
-        $("#submit").on("click", function(event) {
+        $("#submit").on("click", function (event) {
             event.preventDefault();
             const username = $("#input").val();
             const pass = $("#inputPassword").val();
             const type = $("#hiddenType").val();
             const id = $("#hiddenID").val();
-            //console.log(id, username, pass, type);
-            // UPDATE ACCOUNT AJAX CALL HERE
             var updatedAcct = {
                 user_name: username,
                 password: pass
@@ -281,82 +213,66 @@ gsap.to("#navbar-brand", {duration: 1, x: 300});
                 dataType: "json",
                 contentType: "application/json"
             }).then(function (data) {
-                console.log("updated id: " + id);
                 location.reload();
             });
         });
-        
-        // console.log("storage id")
-        // console.log(currentId)
+
         $.ajax(`/displayOne/?id=${currentId}`, {
             type: "GET",
-            // data: data1,
-            // dataType: String
         }).then(function (data) {
-            // console.log(data);
             userData = data;
             var accts = data;
             var len = accts.passwords.length;
             var accts_elem = $("#accounts");
-                // console.log(userData)
-                for (var i = 0; i < userData.passwords.length; i++) {
+            for (var i = 0; i < userData.passwords.length; i++) {
 
-                    var webAccount = $("<a>");
-                    webAccount.addClass("nav-link");
-                    webAccount.attr("id", userData.passwords[i].type);
-                    webAccount.attr("data-toggle", "pill");
-                    webAccount.attr("role", "tab");
-                    webAccount.text(userData.passwords[i].type);
-                    // console.log(userData.passwords[i].user_name)
-                    const name = userData.passwords[i].user_name;
-                    const pass = userData.passwords[i].password;
-                    const type = userData.passwords[i].type;
-                    const id = userData.passwords[i].id;
-                    webAccount.on("click", function () {
-                        document.getElementById("input").value = name;
-                        document.getElementById("inputPassword").value = pass;
-                        document.getElementById("inputSite").value = type;
-                        document.getElementById("hiddenType").value = type;
-                        $("#deleteBtn").attr("siteId",id);
-                        document.getElementById("hiddenID").value = id;
-                    })
+                var webAccount = $("<a>");
+                webAccount.addClass("nav-link");
+                webAccount.attr("id", userData.passwords[i].type);
+                webAccount.attr("data-toggle", "pill");
+                webAccount.attr("role", "tab");
+                webAccount.text(userData.passwords[i].type);
+              
+                const name = userData.passwords[i].user_name;
+                const pass = userData.passwords[i].password;
+                const type = userData.passwords[i].type;
+                const id = userData.passwords[i].id;
+                webAccount.on("click", function () {
+                    document.getElementById("input").value = name;
+                    document.getElementById("inputPassword").value = pass;
+                    document.getElementById("inputSite").value = type;
+                    document.getElementById("hiddenType").value = type;
+                    $("#deleteBtn").attr("siteId", id);
+                    document.getElementById("hiddenID").value = id;
+                })
 
-                    var deleteButton = $("<img>");
-                    deleteButton.addClass("delete");
-                    deleteButton.attr("src", "../images/trash.png");
-                    deleteButton.attr("siteId", userData.passwords[i].id);
-                    webAccount.append(deleteButton);
-                    $("#v-pills-tab").append(webAccount);
-                    
+                var deleteButton = $("<img>");
+                deleteButton.addClass("delete");
+                deleteButton.attr("src", "../images/trash.png");
+                deleteButton.attr("siteId", userData.passwords[i].id);
+                webAccount.append(deleteButton);
+                $("#v-pills-tab").append(webAccount);
+            };
 
-                   // $("#v-pills-tab").append(webAccount);
-
-                }
-            
-            console.log(data)
         });
 
-        $("#deleteBtn").on("click",function () {
-                        event.preventDefault();
-                        
-                        var websiteId = $(this).attr("siteId");
-                        console.log(websiteId);
-                        $(this).parent().remove();
-                        $.ajax({
-                            url: "/dashboard/" + websiteId,
-                            type: "DELETE"
-                        }).then(function (data) {
-                            //console.log("deleted id: " + id);
-                            location.reload();
-                        });
-                        //return false;
-                    });
+        $("#deleteBtn").on("click", function () {
+            event.preventDefault();
 
+            var websiteId = $(this).attr("siteId");
+            $(this).parent().remove();
+            $.ajax({
+                url: "/dashboard/" + websiteId,
+                type: "DELETE"
+            }).then(function (data) {
+                location.reload();
+            });
+        });
 
-      $("#signOut").on("click", function(event) {
-          event.preventDefault();
-          localStorage.clear();
-         window.location.replace("/index");
-      });              
+        $("#signOut").on("click", function (event) {
+            event.preventDefault();
+            localStorage.clear();
+            window.location.replace("/index");
+        });
     });
 </script>
