@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada|Rokkitt&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Michroma&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Galada&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/dstyles.css">
     <title> My KeyChain Dashboard</title>
   </head>
@@ -36,7 +37,9 @@
           </div>
       </nav>
 
-    <div id="names"></div>
+      <h1 id="wb"> Welcome Back </h1>
+      <hr id="wbhr">
+    <div class="row" id="names"></div>
   </body>
   
   </html>
@@ -62,13 +65,8 @@
 
         for (var i = 0; i < len; i++) {
           names_elem.append(
-            "<li><p>" +
-            names.users[i].id +
-            "." +
-            names.users[i].name +
-            `<a onclick='doThis(event)' href='/dashboard' role='button' data-id='` +
-            names.users[i].id +
-            "' class='btn btn-success loginBtn'>Log In!</a></p></li>"
+            "<div class='col-4 text-center'> <div class='card border-success mb-3' style='max-width: 18rem;'> <div class='card-body text-success'><h5 class='card-title'>"
+              + names.users[i].name + "</h5><p class='card-text'><a onclick='doThis(event)' href='/dashboard' role='button' data-id='" + names.users[i].id + "' class='btn btn-success loginBtn'>Log In!</a></p></div></div>"
           );
         }
         //href='/dashboard'
