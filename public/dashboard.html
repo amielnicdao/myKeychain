@@ -52,7 +52,9 @@
       </div>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">My KeyChain <img src="images/whitekey.png"> </a> <a
+
+        <a class="navbar-brand" href="/index">My KeyChain <img src="images/whitekey.png"> </a> <a
+
             style="font-family:'Rokkitt', serif; color:white;">PASSWORD MANAGER</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +64,7 @@
             <ul class="navbar-nav mr-auto">
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign Out</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" id="signOut" href="/index" type="submit">Sign Out</button>
             </form>
         </div>
     </nav>
@@ -351,5 +353,10 @@ gsap.to("#navbar-brand", {duration: 1, x: 300});
                     });
 
 
+      $("#signOut").on("click", function(event) {
+          event.preventDefault();
+          localStorage.clear();
+         window.location.replace("/index");
+      });              
     });
 </script>
