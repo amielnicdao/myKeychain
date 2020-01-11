@@ -61,7 +61,11 @@
     padding-left: 5px;
 }
 
-#InputUser {
+#inputUser {
+    margin: auto;
+    width: 85%;
+}
+#inputPass {
     margin: auto;
     width: 85%;
 }
