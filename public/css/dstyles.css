@@ -56,3 +56,19 @@ a:hover {
 #pillscol {
     width: 65%;
 }
+
+#deleteBtn {
+    background-color: red;
+}
+
+.modal {
+    text-align: center;
+  }
+  
+ 
+  
+  .modal-dialog {
+    
+    text-align: left;
+    vertical-align: middle;
+  }

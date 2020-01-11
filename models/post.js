@@ -23,7 +23,8 @@ var pass = {
         });
     },
     createNewAcc: function(cols, vals, cb) { //added
-        orm.createNewAcc("passwords", cols, vals, id, function(res) {
+        console.log("post");
+        orm.createNewAcc("passwords", cols, vals, function(res) {
             cb(res);
     });
     },
@@ -33,6 +34,12 @@ var pass = {
             
             cb(res);
             
+        });
+    },
+    delete: function(condition, cb) {
+        console.log("post");
+        orm.delete("passwords", condition, function(res){
+            cb(res);
         });
     }
 

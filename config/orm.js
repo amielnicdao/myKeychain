@@ -72,15 +72,15 @@ var orm = {
           cb(result);
         });
       },
-      createNewAcc: function(table, cols, vals, id, cb) {//added
+      createNewAcc: function(table, cols, vals, cb) {//added
         var queryString = "INSERT INTO " + table;
         queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
         queryString += "VALUES (";
         queryString += printQuestionMarks(vals.length);
-        queryString += ") ";
-        queryString += "WHERE user_id = " + localStorage.getItem("id") + ";"; 
+        queryString += ");";
+        //queryString += "WHERE user_id = " + id + ";"; 
         console.log(queryString);
         connection.query(queryString, vals, function(err, result) {
           if (err) {
@@ -99,6 +99,19 @@ var orm = {
           if (err) {
             throw err;
           }
+          cb(result);
+        });
+      },
+      delete: function(table, condition, cb) {
+        var deleteString = "DELETE FROM " + table;
+        deleteString += " WHERE ";
+        deleteString += condition;
+        console.log(deleteString);
+        connection.query(deleteString, function(err, result) {
+          if (err) {
+            throw err;
+          }
+
           cb(result);
         });
       }

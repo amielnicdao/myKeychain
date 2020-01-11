@@ -18,6 +18,39 @@
 </head>
 
 <body>
+    
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">New website</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="inputWebsiteAdd">Website name:</label>
+                  <input type="text" class="form-control" id="inputWebsiteAdd">
+                </div>
+                <div class="form-group">
+                  <label for="inputUserNameAdd">Username:</label>
+                  <input type="text" class="form-control" id="inputUserNameAdd">
+                </div>
+                <div class="form-group">
+                    <label for="inputPasswordAdd">Password:</label>
+                    <input type="text" class="form-control" id="inputPasswordAdd">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" id="inputSubmit" style="background-color: teal;">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html">My KeyChain <img src="images/whitekey.png"> </a> <a
             style="font-family:'Rokkitt', serif; color:white;">PASSWORD MANAGER</a>
@@ -52,15 +85,24 @@
                     aria-controls="v-pills-messages" aria-selected="false">Twitter</a>
                 <a class="nav-link Amazon" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
                     aria-controls="v-pills-settings" aria-selected="false">Amazon</a>
-                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
-                    aria-controls="v-pills-settings" aria-selected="false" style="text-align: center">+ New</a> -->
+                     -->
             </div>
+            <a class="nav-link" id="v-pills-settings-tab" data-toggle="modal" data-target="#myModal" href="#v-pills-settings" role="tab"
+                    aria-controls="v-pills-settings" aria-selected="false" style="text-align: center">+ New</a>
         </div>
         <form id="pillscol">
             <div class="col">
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
                         aria-labelledby="v-pills-home-tab">
+                        <div class="form-group row">
+                            <label for="inputSite" class="col-4 col-form-label">
+                                <h4>Website:</h4>
+                            </label>
+                            <div class="col-8">
+                                <input type="user" class="form-control" id="inputSite">
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="inputUser" class="col-4 col-form-label">
                                 <h4>Username:</h4>
@@ -81,7 +123,11 @@
                             <div class="col-md-auto">
                                 <button type="submit" class="btn btn-success" id="submit">Submit</button>
                             </div>
+                            <div class="col-md-auto">
+                                <button type="submit" class="btn btn-success" id="deleteBtn">Delete</button>
+                            </div>
                         </div>
+                       
         </form>
 
         <input type="text" id="hiddenType" style="visibility: hidden;">
@@ -158,7 +204,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+
+        
 </body>
+
+
 
 
 </html>
@@ -175,7 +225,42 @@ gsap.to("#navbar-brand", {duration: 1, x: 300});
         // gather local storage data here
         // var data1 = localStorage.getItem("name");
         // var data1 = "test";
-        $("#submit").on("click", function () {
+        var userData = new Object();
+        const currentId = localStorage.getItem("id")
+        $("#inputSubmit").on("click" ,function(event){
+            event.preventDefault();
+            
+            
+            var newWebsite = {
+                user_name: $("#inputUserNameAdd")
+                    .val()
+                    .trim(),
+                password: $("#inputPasswordAdd")
+                    .val()
+                    .trim(),
+                type: $("#inputWebsiteAdd")
+                    .val()
+                    .trim()     
+        };
+
+        console.log(newWebsite);
+
+    
+        // Send the POST request.
+        $.ajax("/createAccount/"+ currentId, {
+          type: "POST",
+          data: JSON.stringify(newWebsite),
+          dataType: "json",
+          contentType: "application/json"
+        }).then(function() {
+          console.log("created new website");
+          // Reload the page to get the updated list
+          location.reload();
+            });
+
+        });
+
+        $("#submit").on("click", function(event) {
             event.preventDefault();
             const username = $("#input").val();
             const pass = $("#inputPassword").val();
@@ -196,10 +281,9 @@ gsap.to("#navbar-brand", {duration: 1, x: 300});
             }).then(function (data) {
                 console.log("updated id: " + id);
                 location.reload();
-             });
-        })
-        var userData = new Object();
-        const currentId = localStorage.getItem("id")
+            });
+        });
+        
         // console.log("storage id")
         // console.log(currentId)
         $.ajax(`/displayOne/?id=${currentId}`, {
@@ -212,13 +296,6 @@ gsap.to("#navbar-brand", {duration: 1, x: 300});
             var accts = data;
             var len = accts.passwords.length;
             var accts_elem = $("#accounts");
-            for (var i = 0; i < len; i++) {
-                accts_elem.append(
-                    "<li><p>Type: " +
-                    accts.passwords[i].type +
-                    " & Pass: " +
-                    accts.passwords[i].password + "</p></li>"
-                );
                 // console.log(userData)
                 for (var i = 0; i < userData.passwords.length; i++) {
 
@@ -236,26 +313,42 @@ gsap.to("#navbar-brand", {duration: 1, x: 300});
                     webAccount.on("click", function () {
                         document.getElementById("input").value = name;
                         document.getElementById("inputPassword").value = pass;
+                        document.getElementById("inputSite").value = type;
                         document.getElementById("hiddenType").value = type;
+                        $("#deleteBtn").attr("siteId",id);
                         document.getElementById("hiddenID").value = id;
                     })
 
-                    var deleteButton = $("<img>")
-                    deleteButton.addClass("delete")
-                    deleteButton.attr("src", "../images/trash.png")
-                    webAccount.append(deleteButton)
+                    var deleteButton = $("<img>");
+                    deleteButton.addClass("delete");
+                    deleteButton.attr("src", "../images/trash.png");
+                    deleteButton.attr("siteId", userData.passwords[i].id);
+                    webAccount.append(deleteButton);
                     $("#v-pills-tab").append(webAccount);
-                    $('.delete').click(function () {
-                            $(this).parent().remove();
-                            return false;
-                        });
+                    
 
-                    $("#v-pills-tab").append(webAccount);
+                   // $("#v-pills-tab").append(webAccount);
 
                 }
-            }
+            
             console.log(data)
         });
+
+        $("#deleteBtn").on("click",function () {
+                        event.preventDefault();
+                        
+                        var websiteId = $(this).attr("siteId");
+                        console.log(websiteId);
+                        $(this).parent().remove();
+                        $.ajax({
+                            url: "/dashboard/" + websiteId,
+                            type: "DELETE"
+                        }).then(function (data) {
+                            //console.log("deleted id: " + id);
+                            location.reload();
+                        });
+                        //return false;
+                    });
 
 
     });
