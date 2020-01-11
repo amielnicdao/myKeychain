@@ -58,12 +58,14 @@ router.get("/displayOne", function(req, res){
     });
 });
 
-router.post("/dashboard", function(req, res){//added
+router.post("/createAccount/:id", function(req, res){//added
+    var userId = req.params.id;
+    console.log("controller");
     pwd.createNewAcc([
-        "name", "type", "password"
+        "user_name", "type", "password" , "user_id"
     ], [
-        req.body.name, req.body.type, req.body.password
-    ],saveId, function(result) {
+        req.body.user_name, req.body.type, req.body.password, userId
+    ], function(result) {
         res.json({ id: result.insertId});
     });
     // console.log(req.body)
