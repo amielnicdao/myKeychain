@@ -133,3 +133,6 @@ p {
     margin-top: 20px;
   }
 
+  .col-6 {
+      opacity: 0;
+  }
